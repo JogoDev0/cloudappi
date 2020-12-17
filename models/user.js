@@ -5,7 +5,11 @@ const addressSchema = require('../models/address');
 const User = mongoose.model('User', {
     id: {
         type: Number,
-        required: true
+        required: true,
+        validate: {
+            validator: Number.isInteger,
+            message: '{VALUE} is not an integer value'
+        }
     },
     name: {
         type: String,

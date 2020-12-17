@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 const addressSchema = new Schema({
     id: {
         type: Number,
-        required: true
+        required: true,
+        validate: {
+            validator: Number.isInteger,
+            message: '{VALUE} is not an integer value'
+        }
     },
     street: {
         type: String,
